@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ragavarshini Alagarsamy | AI Engineer & Python Developer</title>
+  <meta name="description" content="Portfolio of Ragavarshini Alagarsamy, an AI Developer, Python Developer, and Full Stack AI Engineer building intelligent solutions bridging AI, Robotics, and MedTech.">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        RAGAVARSHINI
+        <span class="logo-dot"></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#expertise" class="nav-link">Expertise</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/1JyU8rjU5d-P4Um3T7mbZVVyqzA4wh5zc/view?usp=drive_link" 
+             target="_blank" rel="noopener noreferrer" class="nav-cta">Resume</a>
+        </li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="reveal">
+          <span class="hero-meet-label">MEET</span>
+          <h1 class="hero-title">
+            <span class="text-gradient">RAGAVARSHINI</span><br>
+            <span class="text-gradient">ALAGARSAMY</span>
+          </h1>
+          <p class="hero-role-wrapper">
+            Building Intelligent Systems with <span class="role-text" id="animated-role">AI Engineering</span><span class="cursor">|</span>
+          </p>
+          <p class="hero-tagline">
+            I design and develop intelligent applications using Artificial Intelligence, Robotics, Data Analytics, and Modern Software Engineering to solve real-world challenges.
+          </p>
+          
+          <div class="hero-actions-container">
+            <div class="primary-actions">
+              <a href="#projects" class="btn btn-primary magnetic">
+                View Projects
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="https://drive.google.com/file/d/1JyU8rjU5d-P4Um3T7mbZVVyqzA4wh5zc/view?usp=drive_link" 
+                 target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic">
+                Download Resume
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </a>
+            </div>
+            
+            <div class="secondary-actions">
+              <a href="https://github.com/ragavarshini3" target="_blank" rel="noopener noreferrer" class="btn-link magnetic">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 6px; vertical-align: middle;"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>GitHub
+              </a>
+              <a href="http://www.linkedin.com/in/ragavarshini-alagarsamy-17mar2006" target="_blank" rel="noopener noreferrer" class="btn-link magnetic">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 6px; vertical-align: middle;"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>LinkedIn
+              </a>
+              <a href="#contact" class="btn-link magnetic">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="margin-right: 6px; vertical-align: middle;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact Me
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-image-container reveal">
+          <div class="hero-photo-wrapper">
+            <div class="hero-photo-inner">
+              <img src="assets/images/profile_placeholder.png" alt="Ragavarshini Alagarsamy" class="hero-photo">
+              <div class="hero-glass-overlay"></div>
+            </div>
+            
+            <!-- Floating Expertise Cards -->
+            <div class="floating-card fc-4">
+              <div class="fc-icon">🤖</div>
+              <div class="fc-content">
+                <div class="fc-title">AI & Robotics</div>
+                <div class="fc-desc">ROS2 • ML • AI</div>
+              </div>
+            </div>
+
+            <div class="floating-card fc-3">
+              <div class="fc-icon">📊</div>
+              <div class="fc-content">
+                <div class="fc-title">Data Analytics</div>
+                <div class="fc-desc">Power BI • Python • Insights</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container reveal">
+    <div class="section-header">
+      <span class="section-tag">About Me</span>
+      <h2 class="section-title">Bridging Code & Autonomy</h2>
+      <p class="section-desc">AI & Data Science Engineer · Builder · Researcher</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-story">
+        <p class="about-paragraph about-lead">
+          I build intelligent systems that <em>think</em>, <em>adapt</em>, and <em>act</em> — from autonomous vehicle swarms in ROS2 to AI-powered web applications in Python.
+        </p>
+        <p class="about-paragraph">
+          Currently pursuing B.Tech in AI & Data Science at KGISL Institute of Technology (CGPA: 8.37), I bridge research and real-world engineering — co-authoring publications, crafting data pipelines, and pushing the boundaries of what software can do.
+        </p>
+
+        <div class="about-chips">
+          <span class="about-chip">🤖 AI & Robotics</span>
+          <span class="about-chip">📊 Data Analytics</span>
+          <span class="about-chip">🐍 Python</span>
+          <span class="about-chip">🌐 Full Stack</span>
+          <span class="about-chip">📡 ROS2</span>
+          <span class="about-chip">⚡ Startup Energy</span>
+        </div>
+      </div>
+      
+      <div class="about-metadata">
+        <div class="glass-card metadata-card">
+          <p class="metadata-title">Location</p>
+          <p class="metadata-value">📍 Sattur, Virudhunagar, Tamil Nadu, India</p>
+        </div>
+        <div class="glass-card metadata-card">
+          <p class="metadata-title">Languages Spoken</p>
+          <div class="language-tags">
+            <span class="language-tag active">English (Fluent)</span>
+            <span class="language-tag">Tamil (Conversational)</span>
+            <span class="language-tag">Telugu (Native)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Career Vision Banner -->
+    <div class="career-vision">
+      <div class="career-vision-quote">
+        "Engineering AI systems that bridge Intelligence, Robotics, and Healthcare — to solve the problems that matter most."
+      </div>
+      <div class="career-vision-author">— Career Vision</div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="container reveal">
+    <div class="section-header">
+      <span class="section-tag">Education</span>
+      <h2 class="section-title">Academic Foundation</h2>
+      <p class="section-desc">My academic journey and credentials in technology and science.</p>
+    </div>
+
+    <div class="education-grid">
+      <!-- Graduation Card -->
+      <div class="glass-card education-card">
+        <div class="edu-type">GRADUATION</div>
+        <h3 class="edu-title">B.Tech AI & Data Science</h3>
+        <p class="edu-institution">KGISL Institute of Technology</p>
+        <p class="edu-duration">2023 – Present</p>
+        <p class="edu-cgpa">CGPA: 8.37</p>
+      </div>
+
+      <!-- School Card -->
+      <div class="glass-card education-card">
+        <div class="edu-type">SCHOOL (HIGHER SECONDARY)</div>
+        <h3 class="edu-title">RAMCO VIDYALAYA CBSE</h3>
+        <p class="edu-institution">Higher Secondary Education</p>
+        <p class="edu-duration">2021 – 2023</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section id="expertise" class="container reveal">
+    <div class="section-header">
+      <span class="section-tag">Core Competencies</span>
+      <h2 class="section-title">What I Can Build</h2>
+      <p class="section-desc">My engineering capabilities applied to real-world software & autonomous systems.</p>
+    </div>
+
+    <div class="expertise-grid">
+      <!-- Card 01 -->
+      <div class="glass-card expertise-card">
+        <div class="expertise-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3 class="expertise-title">Artificial Intelligence & ML</h3>
+        <p class="expertise-desc">
+          Designing systems leveraging NLP and symbolic math models. Experienced in Hugging Face Transformers, intents parsing, rule-engines, and data-driven prediction workflows.
+        </p>
+        <div class="expertise-applications">
+          <p class="expertise-app-label">Realized Applications</p>
+          <div class="expertise-app-list">
+            <span class="expertise-app-tag">AI Negotiation Engine</span>
+            <span class="expertise-app-tag">OCR Document Reader</span>
+            <span class="expertise-app-tag">Math Solver Engine</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 02 -->
+      <div class="glass-card expertise-card">
+        <div class="expertise-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        </div>
+        <h3 class="expertise-title">Python & Full Stack Development</h3>
+        <p class="expertise-desc">
+          Building backend architectures, Flask web servers, routing pipelines, RESTful APIs, and responsive glassmorphic frontend UI dashboards.
+        </p>
+        <div class="expertise-applications">
+          <p class="expertise-app-label">Realized Applications</p>
+          <div class="expertise-app-list">
+            <span class="expertise-app-tag">Flask Backend Workflows</span>
+            <span class="expertise-app-tag">RESTful API Design</span>
+            <span class="expertise-app-tag">Symbolic Math Calculators</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 03 -->
+      <div class="glass-card expertise-card robotics">
+        <div class="expertise-icon" style="color: var(--color-cyan); border-color: rgba(6, 182, 212, 0.2);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M12 2v9M8 5h8"/></svg>
+        </div>
+        <h3 class="expertise-title">Robotics & ROS2 Middleware</h3>
+        <p class="expertise-desc">
+          Simulating cooperative agent controls and swarm intelligence dynamics. Setting up node communication, V2V logic, Gazebo, and CARLA simulations.
+        </p>
+        <div class="expertise-applications">
+          <p class="expertise-app-label">Realized Applications</p>
+          <div class="expertise-app-list">
+            <span class="expertise-app-tag">ROS2 Swarm Topics</span>
+            <span class="expertise-app-tag">CARLA Convoy Simulators</span>
+            <span class="expertise-app-tag">Autonomous V2V Protocols</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications & Research Section -->
+  <section id="publications" class="container reveal">
+    <div class="section-header">
+      <span class="section-tag">Publications & Research</span>
+      <h2 class="section-title">Academic & Technical Writing</h2>
+      <p class="section-desc">Contributing peer-reviewed analysis to robotics decision logic.</p>
+    </div>
+
+    <div class="glass-card publications-card">
+      <div class="pub-visual">
+        <img src="assets/images/book_cover_placeholder.png" alt="Propositional Logics in Artificial Intelligence & Automated Reasoning Cover">
+      </div>
+      <div class="pub-info">
+        <div class="pub-meta">
+          <span class="pub-meta-tag">Book Chapter</span>
+          <span class="pub-meta-isbn">ISBN: 978-93-341-6771-9</span>
+          <span class="pub-meta-tag" style="background:rgba(6, 182, 212, 0.08); border-color:rgba(6, 182, 212, 0.2);">Robotics Focus</span>
+        </div>
+        <h3 class="pub-title">"Use of Propositional Logic in Robotics"</h3>
+        <p class="pub-book">Published in: Propositional Logics in Artificial Intelligence & Automated Reasoning</p>
+        <p class="pub-desc">
+          Co-authored during my second year of B.Tech. The chapter explores the integration of mathematical logics and propositional reasoning as a decision-making layer in autonomous robotic nodes, laying foundational principles for deterministic pathfinding.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="container reveal">
+    <div class="section-header">
+      <span class="section-tag">Career History</span>
+      <h2 class="section-title">Professional Experience</h2>
+      <p class="section-desc">Practical industrial placements focused on software development and data analytics.</p>
+    </div>
+
+    <div class="timeline">
+      <!-- Item 01: Primary Appin -->
+      <div class="timeline-item primary-exp">
+        <div class="timeline-dot"></div>
+        <div class="glass-card timeline-content">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-title">Full Stack Python with AI Intern</h3>
+              <p class="timeline-company">APPIN TECHNOLOGY</p>
+            </div>
+            <span class="timeline-date">June 2025 – July 2025</span>
+          </div>
+          <div class="timeline-bullets">
+            <p class="timeline-bullet">Developed the core backend mechanics of the AI Powered Math Solver using Python, Flask, SymPy, and OCR libraries.</p>
+            <p class="timeline-bullet">Built mathematical logic engines that parsed expressions into structured execution steps.</p>
+            <p class="timeline-bullet">Implemented optical character recognition (OCR) image upload routing for math inputs.</p>
+            <p class="timeline-bullet">Designed backend PDF generators generating detailed, clean step-by-step reports.</p>
+            <p class="timeline-bullet">Constructed REST APIs, server routing, and HTML/CSS web layout integrations.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 02: Elevate Labs -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="glass-card timeline-content">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-title">Data Analyst Intern</h3>
+              <p class="timeline-company">ELEVATE LABS</p>
+            </div>
+            <span class="timeline-date">2025</span>
+          </div>
+          <div class="timeline-bullets">
+            <p class="timeline-bullet">Conducted data cleaning, pre-processing, and schema validations to clean large datasets.</p>
+            <p class="timeline-bullet">Created interactive dashboards using Power BI and Tableau for metrics reporting.</p>
+            <p class="timeline-bullet">Designed visual diagrams mapping out key data trends and business indicators.</p>
+            <p class="timeline-bullet">Automated reporting processes to minimize manual calculations and spreadsheet efforts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section id="projects" class="container reveal">
+    <div class="section-header">
+      <span class="section-tag">Case Studies</span>
+      <h2 class="section-title">Featured Engineering Work</h2>
+      <p class="section-desc">Interactive product-style case studies showing architecture and outcomes.</p>
+    </div>
+
+    <div class="project-card-grid">
+      <!-- Project 01 -->
+      <div class="glass-card project-card">
+        <div class="project-card-image">
+          <img src="assets/images/math_solver_mockup.png" alt="AI Powered Math Solver Mockup">
+        </div>
+        <div class="project-tech">
+          <span class="project-tech-tag">Python</span>
+          <span class="project-tech-tag">Flask</span>
+          <span class="project-tech-tag">SymPy</span>
+          <span class="project-tech-tag">OCR</span>
+        </div>
+        <h3 class="project-card-title">AI Powered Math Solver</h3>
+        <p class="project-card-desc">
+          An application capturing math expressions from handwriting/typing, generating step-by-step solutions and downloadable PDFs.
+        </p>
+        <div class="project-card-links">
+          <a href="projects/math-solver.html" class="project-link project-link-primary">Read Case Study →</a>
+          <a href="https://github.com/ragavarshini3/Ai_Powered_MathSolver" target="_blank" rel="noopener noreferrer" class="project-link project-link-secondary">GitHub</a>
+        </div>
+      </div>
+
+      <!-- Project 02 -->
+      <div class="glass-card project-card">
+        <div class="project-card-image driving">
+          <img src="assets/images/swarm_driving_mockup.png" alt="Swarm Intelligence Driving Mockup">
+        </div>
+        <div class="project-tech">
+          <span class="project-tech-tag">ROS2</span>
+          <span class="project-tech-tag">Python</span>
+          <span class="project-tech-tag">Gazebo</span>
+          <span class="project-tech-tag">CARLA</span>
+        </div>
+        <h3 class="project-card-title">Swarm Intelligence Driving</h3>
+        <p class="project-card-desc">
+          Cooperative vehicle-to-vehicle simulation model exploring path planning, convoy logic, and robotics topics communication.
+        </p>
+        <div class="project-card-links">
+          <a href="projects/autonomous-driving.html" class="project-link project-link-primary">Read Case Study →</a>
+          <a href="https://github.com/ragavarshini3/Swarm-Intelligence-Driving" target="_blank" rel="noopener noreferrer" class="project-link project-link-secondary">GitHub</a>
+        </div>
+      </div>
+
+      <!-- Project 03 -->
+      <div class="glass-card project-card">
+        <div class="project-card-image">
+          <img src="assets/images/negotiation_agent_mockup.png" alt="AI Negotiation Agent Mockup">
+        </div>
+        <div class="project-tech">
+          <span class="project-tech-tag">Python</span>
+          <span class="project-tech-tag">NLP</span>
+          <span class="project-tech-tag">HuggingFace</span>
+          <span class="project-tech-tag">Transformers</span>
+        </div>
+        <h3 class="project-card-title">AI Negotiation Agent</h3>
+        <p class="project-card-desc">
+          Conversational agent utilizing model pipelines to negotiate pricing agreements, managing intent and contextual dialog states.
+        </p>
+        <div class="project-card-links">
+          <a href="projects/negotiation-agent.html" class="project-link project-link-primary">Read Case Study →</a>
+          <a href="https://github.com/ragavarshini3/AI-NEGOTIATION-AGENT" target="_blank" rel="noopener noreferrer" class="project-link project-link-secondary">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="container reveal">
+    <div class="section-header">
+      <span class="section-tag">Capabilities</span>
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-desc">A modern directory of technologies and frameworks I use.</p>
+    </div>
+
+    <div class="skills-container">
+      <!-- Programming -->
+      <div class="glass-card skills-category">
+        <h3 class="skills-category-title">Programming Languages</h3>
+        <div class="skills-list">
+          <span class="skill-pill">🐍 Python</span>
+          <span class="skill-pill">☕ Java</span>
+        </div>
+      </div>
+
+      <!-- Web Dev -->
+      <div class="glass-card skills-category">
+        <h3 class="skills-category-title">Web & Backend Engineering</h3>
+        <div class="skills-list">
+          <span class="skill-pill">🧪 Flask</span>
+          <span class="skill-pill">🌐 HTML5 / CSS3</span>
+          <span class="skill-pill">🔌 REST APIs</span>
+          <span class="skill-pill">⚡ JavaScript (ES6+)</span>
+        </div>
+      </div>
+
+      <!-- AI & ML -->
+      <div class="glass-card skills-category">
+        <h3 class="skills-category-title">AI, ML & Data Analytics</h3>
+        <div class="skills-list">
+          <span class="skill-pill">🧠 TensorFlow</span>
+          <span class="skill-pill">📊 Machine Learning / Deep Learning</span>
+          <span class="skill-pill">➕ SymPy (Symbolic Math)</span>
+          <span class="skill-pill">👁️ OCR Engine</span>
+          <span class="skill-pill">🤗 Hugging Face API</span>
+          <span class="skill-pill">🐼 Pandas / NumPy</span>
+          <span class="skill-pill">📈 Matplotlib</span>
+          <span class="skill-pill">📉 Power BI / Tableau</span>
+        </div>
+      </div>
+
+      <!-- Databases & Tools -->
+      <div class="glass-card skills-category">
+        <h3 class="skills-category-title">Databases & Tools</h3>
+        <div class="skills-list">
+          <span class="skill-pill">🗄️ PostgreSQL</span>
+          <span class="skill-pill">💾 MongoDB</span>
+          <span class="skill-pill">🐙 Git / GitHub</span>
+          <span class="skill-pill">🐧 Linux Shell</span>
+          <span class="skill-pill">🤖 ROS2</span>
+          <span class="skill-pill">🪐 Gazebo Simulator</span>
+          <span class="skill-pill">🚗 CARLA Engine</span>
+        </div>
+      </div>
+
+      <!-- Emerging tech -->
+      <div class="glass-card skills-category" style="border-color: rgba(59, 130, 246, 0.25);">
+        <h3 class="skills-category-title" style="border-left-color: var(--color-cyan);">Emerging Technologies & Learning Interests</h3>
+        <div class="skills-list">
+          <span class="skill-pill" style="border-color: var(--color-accent);">🤖 Agentic AI Fundamentals</span>
+          <span class="skill-pill" style="border-color: var(--color-accent);">💬 Large Language Models (LLMs)</span>
+          <span class="skill-pill" style="border-color: var(--color-accent);">✍️ Prompt Engineering</span>
+          <span class="skill-pill" style="border-color: var(--color-accent);">⛓️ AI Agents & Workflows</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications & NASA Section -->
+  <section id="certifications" class="container reveal">
+    <div class="section-header">
+      <span class="section-tag">Credentials</span>
+      <h2 class="section-title">Certifications & Awards</h2>
+      <p class="section-desc">Validated milestones demonstrating specialized study and problem-solving.</p>
+    </div>
+
+    <div class="certifications-section">
+      <!-- Certifications Table -->
+      <div class="certs-table-wrapper">
+        <table class="certs-table">
+          <thead>
+            <tr>
+              <th>Credential Title</th>
+              <th>Issuing Entity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="cert-name">Agentic AI and Applications</span></td>
+              <td><span class="cert-provider">ExcelR (July 2025)</span></td>
+            </tr>
+            <tr>
+              <td><span class="cert-name">Full Stack Python with AI</span></td>
+              <td><span class="cert-provider">Appin Technology</span></td>
+            </tr>
+            <tr>
+              <td><span class="cert-name">Data Science Internship</span></td>
+              <td><span class="cert-provider">SkillCraft Technology</span></td>
+            </tr>
+            <tr>
+              <td><span class="cert-name">Data Analyst Internship</span></td>
+              <td><span class="cert-provider">Elevate Labs</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- NASA Showcase Card -->
+      <div class="glass-card nasa-card">
+        <div class="nasa-header">
+          <svg class="nasa-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M12 2v20"/><path d="M2 12h20"/>
+          </svg>
+          <div>
+            <h3 class="nasa-title">NASA Space Apps 2025</h3>
+            <p class="nasa-subtitle">Galactic Problem Solver</p>
+          </div>
+        </div>
+        <p class="nasa-desc">
+          Awarded for outstanding participation and engineering efforts to address complex challenges facing Earth and outer space during the global 2025 NASA International Space Apps Challenge.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Counter Stats -->
+  <section class="container reveal">
+    <div class="achievements-row">
+      <div class="glass-card counter-card">
+        <div class="counter-number" data-target="3" data-suffix="+">0</div>
+        <div class="counter-label">Projects Completed</div>
+      </div>
+      <div class="glass-card counter-card">
+        <div class="counter-number" data-target="2" data-suffix="+">0</div>
+        <div class="counter-label">Internships Finished</div>
+      </div>
+      <div class="glass-card counter-card">
+        <div class="counter-number" data-target="4" data-suffix="+">0</div>
+        <div class="counter-label">Certifications Held</div>
+      </div>
+      <div class="glass-card counter-card">
+        <div class="counter-number" data-target="1" data-suffix="">0</div>
+        <div class="counter-label">Published Chapters</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Showcase Section -->
+  <section id="github" class="container reveal">
+    <div class="section-header">
+      <span class="section-tag">Code Base</span>
+      <h2 class="section-title">GitHub Showcase</h2>
+      <p class="section-desc">Active codebases, open-source repositories, and contributions.</p>
+    </div>
+
+    <div class="github-grid">
+      <!-- Repositories -->
+      <div class="github-profile-card">
+        <div class="github-header">
+          <div class="github-user">
+            <div class="github-avatar">R</div>
+            <div>
+              <p class="github-username">ragavarshini3</p>
+              <a href="https://github.com/ragavarshini3" target="_blank" rel="noopener noreferrer" class="github-user-link">github.com/ragavarshini3</a>
+            </div>
+          </div>
+          <a href="https://github.com/ragavarshini3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.8rem;">Follow</a>
+        </div>
+        <div id="github-repos-container" class="github-repos">
+          <!-- Populated by JavaScript, fallbacks present -->
+          <p style="grid-column: span 2; text-align: center; color: var(--color-text-muted);">Loading active repositories...</p>
+        </div>
+      </div>
+
+      <!-- Contributions -->
+      <div class="github-activity-card">
+        <h4 style="font-family:'Outfit'; font-size:1.1rem; color:var(--color-slate-light);">Contribution Activity (Simulated)</h4>
+        <div class="activity-grid-sim">
+          <!-- 35 squares simulation -->
+          <div class="activity-day lvl-2"></div>
+          <div class="activity-day lvl-1"></div>
+          <div class="activity-day"></div>
+          <div class="activity-day lvl-3"></div>
+          <div class="activity-day lvl-4"></div>
+          <div class="activity-day"></div>
+          <div class="activity-day lvl-1"></div>
+          <div class="activity-day lvl-2"></div>
+          <div class="activity-day lvl-3"></div>
+          <div class="activity-day"></div>
+          <div class="activity-day lvl-1"></div>
+          <div class="activity-day"></div>
+          <div class="activity-day lvl-2"></div>
+          <div class="activity-day lvl-4"></div>
+          <div class="activity-day lvl-1"></div>
+          <div class="activity-day lvl-3"></div>
+          <div class="activity-day lvl-2"></div>
+          <div class="activity-day"></div>
+          <div class="activity-day lvl-1"></div>
+          <div class="activity-day lvl-3"></div>
+          <div class="activity-day"></div>
+          <div class="activity-day lvl-2"></div>
+          <div class="activity-day lvl-1"></div>
+          <div class="activity-day lvl-4"></div>
+          <div class="activity-day"></div>
+          <div class="activity-day lvl-3"></div>
+          <div class="activity-day lvl-2"></div>
+          <div class="activity-day lvl-1"></div>
+          <div class="activity-day"></div>
+          <div class="activity-day lvl-1"></div>
+          <div class="activity-day lvl-3"></div>
+          <div class="activity-day lvl-2"></div>
+          <div class="activity-day lvl-4"></div>
+          <div class="activity-day lvl-1"></div>
+          <div class="activity-day"></div>
+        </div>
+
+        <!-- HackerRank Badge Card -->
+        <div class="glass-card hackerrank-card">
+          <div>
+            <div class="hackerrank-logo">
+              HackerRank
+            </div>
+            <p style="font-size:0.8rem; color:var(--color-text-secondary); margin-top:4px;">Problem Solving Practice</p>
+          </div>
+          <a href="https://www.hackerrank.com/profile/ragavarshini_30" target="_blank" rel="noopener noreferrer" class="btn btn-accent" style="padding: 6px 14px; font-size: 0.8rem;">Profile →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section (Placeholder) -->
+  <section class="container reveal">
+    <div class="section-header">
+      <span class="section-tag">Endorsements</span>
+      <h2 class="section-title">Testimonials & Reviews</h2>
+      <p class="section-desc">Recommendations from academic mentors and project partners.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="glass-card testimonial-card-placeholder">
+        <svg class="testimonial-ph-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        <p class="testimonial-ph-text">
+          Testimonials will appear here once co-workers or academic mentors write formal reviews. This grid will expand automatically.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container reveal">
+    <div class="section-header">
+      <span class="section-tag">Get in Touch</span>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="section-desc">Available for internships, collaborative research, or AI/Robotics engineering roles.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info-list">
+        <!-- Phone -->
+        <div class="glass-card contact-info-card">
+          <div class="contact-info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="contact-info-details">
+            <p>Phone Number</p>
+            <p><a href="tel:+919025685257">+91 9025685257</a></p>
+          </div>
+        </div>
+        <!-- Email -->
+        <div class="glass-card contact-info-card">
+          <div class="contact-info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-info-details">
+            <p>Email Address</p>
+            <p><a href="mailto:alagarsamyvarshini@gmail.com">alagarsamyvarshini@gmail.com</a></p>
+          </div>
+        </div>
+        <!-- Location -->
+        <div class="glass-card contact-info-card">
+          <div class="contact-info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-info-details">
+            <p>Location</p>
+            <p>Sattur, Virudhunagar, Tamil Nadu, India</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="glass-card contact-form-card">
+        <form id="portfolio-contact-form">
+          <div class="form-group">
+            <label for="contact-name" class="form-label">Name</label>
+            <input type="text" id="contact-name" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-email" class="form-label">Email</label>
+            <input type="email" id="contact-email" class="form-control" placeholder="your.email@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-message" class="form-label">Message</label>
+            <textarea id="contact-message" class="form-control" placeholder="Tell me about your project, internship, or role details..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+          <div id="contact-form-status" class="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="logo">
+        RAGAVARSHINI
+        <span class="logo-dot"></span>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 Ragavarshini Alagarsamy. Built with Premium Dark Design.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

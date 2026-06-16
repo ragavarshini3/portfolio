@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: AI Powered Math Solver | Ragavarshini Alagarsamy</title>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- Floating Navigation Bar -->
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="../index.html#home" class="logo">
+        RAGAVARSHINI
+        <span class="logo-dot"></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#about" class="nav-link">About</a></li>
+        <li><a href="../index.html#expertise" class="nav-link">Expertise</a></li>
+        <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+        <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+        <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+        <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+        <li>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/1JyU8rjU5d-P4Um3T7mbZVVyqzA4wh5zc/view?usp=drive_link" 
+             target="_blank" rel="noopener noreferrer" class="nav-cta">Resume</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Case Study Hero -->
+  <section class="case-study-hero">
+    <div class="container">
+      <a href="../index.html#projects" class="project-link" style="color:var(--color-accent); font-weight:600; margin-bottom:24px; display:inline-flex; align-items:center; gap:8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Projects
+      </a>
+      <h1 class="hero-title" style="font-size:3rem; margin-bottom:16px;">AI Powered Math Solver</h1>
+      <p class="hero-desc" style="margin-bottom:0; max-width:800px;">
+        An intelligent step-by-step solver converting handwritten and uploaded mathematical expressions into symbolic solutions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Case Study Content Grid -->
+  <section class="container" style="padding-top:60px;">
+    <div class="case-study-grid">
+      <!-- Main Content -->
+      <div class="case-study-content">
+        <!-- Overview / Problem -->
+        <div>
+          <h2 class="case-study-section-title">The Challenge</h2>
+          <p class="case-study-text" style="margin-bottom:16px;">
+            Students frequently struggle with solving complex mathematical formulas and equations. Standard digital calculators display final numerical answers but rarely provide step-by-step derivations or algebraic breakdowns needed for real learning. 
+          </p>
+          <p class="case-study-text">
+            The goal of this project was to design a platform where users could type an equation or upload an image of handwriting, automatically extract the mathematical expression, resolve it symbolically, and generate structured step-by-step lessons with downloadable PDF reports.
+          </p>
+        </div>
+
+        <!-- Solution -->
+        <div>
+          <h2 class="case-study-section-title">The Solution</h2>
+          <p class="case-study-text" style="margin-bottom:24px;">
+            As the sole developer on this project, I built a Full Stack web application powered by a Flask backend and a symbolic math engine. The application utilizes OCR engines to extract mathematical notation from image uploads. Once resolved, the equations are fed into a SymPy engine which solves them and generates sequential solution steps, rendering mathematical notation dynamically using math layout structures on the frontend and exporting a clean, formatted PDF.
+          </p>
+          <div style="margin-bottom:24px; display:flex; justify-content:center;">
+            <img src="../assets/images/math_solver_mockup.png" alt="AI Powered Math Solver Mockup" style="width:65%; max-width:500px; border-radius:var(--border-radius-md); border:1px solid var(--glass-border); opacity:0.95; transition:var(--transition-smooth); box-shadow:0 12px 40px rgba(0,0,0,0.4);" onmouseover="this.style.opacity=1; this.style.transform='scale(1.02)'" onmouseout="this.style.opacity=0.95; this.style.transform='scale(1)'">
+          </div>
+        </div>
+
+        <div>
+          <h2 class="case-study-section-title">System Architecture</h2>
+          <div class="arch-pipeline">
+
+            <div class="arch-pipeline-node">
+              <div class="arch-node-left">
+                <div class="arch-node-icon">⌨️</div>
+                <div class="arch-node-connector"></div>
+              </div>
+              <div class="arch-node-body">
+                <div class="arch-node-label">Layer 01 · Input</div>
+                <div class="arch-node-title">User Input Interface</div>
+                <div class="arch-node-desc">Web UI supporting typed equations &amp; handwritten image uploads via OCR trigger.</div>
+              </div>
+            </div>
+
+            <div class="arch-pipeline-node">
+              <div class="arch-node-left">
+                <div class="arch-node-icon">🔀</div>
+                <div class="arch-node-connector"></div>
+              </div>
+              <div class="arch-node-body">
+                <div class="arch-node-label">Layer 02 · Routing</div>
+                <div class="arch-node-title">Flask API Middleware</div>
+                <div class="arch-node-desc">Route controllers dispatch input to the correct processing pipeline — OCR or direct symbolic.</div>
+              </div>
+            </div>
+
+            <div class="arch-pipeline-node">
+              <div class="arch-node-left">
+                <div class="arch-node-icon">👁️</div>
+                <div class="arch-node-connector"></div>
+              </div>
+              <div class="arch-node-body">
+                <div class="arch-node-label">Layer 03 · Vision</div>
+                <div class="arch-node-title">OCR Extraction Engine</div>
+                <div class="arch-node-desc">Binarized image preprocessing + symbol recognition parser extracts mathematical notation.</div>
+              </div>
+            </div>
+
+            <div class="arch-pipeline-node">
+              <div class="arch-node-left">
+                <div class="arch-node-icon">🧮</div>
+                <div class="arch-node-connector"></div>
+              </div>
+              <div class="arch-node-body">
+                <div class="arch-node-label">Layer 04 · Compute</div>
+                <div class="arch-node-title">SymPy Symbolic Solver</div>
+                <div class="arch-node-desc">Validated algebraic expression parsed &amp; resolved step-by-step using SymPy computation trees.</div>
+              </div>
+            </div>
+
+            <div class="arch-pipeline-node">
+              <div class="arch-node-left">
+                <div class="arch-node-icon">📄</div>
+                <div class="arch-node-connector"></div>
+              </div>
+              <div class="arch-node-body">
+                <div class="arch-node-label">Layer 05 · Output</div>
+                <div class="arch-node-title">Document Generator</div>
+                <div class="arch-node-desc">Step-by-step MathJax UI display &amp; formatted PDF export for student use.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- Challenges Faced -->
+        <div>
+          <h2 class="case-study-section-title">Key Challenges & Resolutions</h2>
+          <ul class="timeline-bullets" style="gap:20px;">
+            <li class="timeline-bullet">
+              <strong>Extracting Math Symbols via OCR:</strong> Standard OCR packages are trained on linear text and struggle to interpret layered fractions, exponents, and integrals. I solved this by cleaning up images (binarization, scaling) and optimizing OCR parsing specifically for math structures.
+            </li>
+            <li class="timeline-bullet">
+              <strong>Evaluating Safe Symbolic Math:</strong> Raw user inputs could crash standard python evaluators. I implemented strict string sanitization processes and used SymPy’s parser to safely evaluate only validated algebraic terms.
+            </li>
+            <li class="timeline-bullet">
+              <strong>Representing Human-Readable Steps:</strong> Standard symbolic libraries compute solutions instantly. To display step-by-step details, I implemented sub-routines tracking arithmetic rules sequentially (e.g. simplifying terms, isolation of variables, operations tracking).
+            </li>
+          </ul>
+        </div>
+
+        <!-- Outcomes -->
+        <div>
+          <h2 class="case-study-section-title">Project Outcomes & Results</h2>
+          <ul class="timeline-bullets" style="gap:12px;">
+            <li class="timeline-bullet">Successfully built an end-to-end web solver application from scratch.</li>
+            <li class="timeline-bullet">Created structured, clean solution paths for multi-step algebraic equations.</li>
+            <li class="timeline-bullet">Added PDF export capabilities generating elegant, printable math handouts.</li>
+            <li class="timeline-bullet">Gained massive experience integrating Flask routing with advanced Python computational packages.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="case-study-sidebar">
+        <div class="glass-card">
+          <h4 style="font-family:'Outfit'; font-size:1.15rem; margin-bottom:16px; border-bottom:1px solid var(--glass-border); padding-bottom:8px;">Project Details</h4>
+          
+          <div style="margin-bottom:16px;">
+            <p style="font-size:0.8rem; text-transform:uppercase; color:var(--color-text-muted); font-weight:600; margin-bottom:4px;">Role</p>
+            <p style="font-size:0.95rem; font-weight:500;">Sole Full Stack Developer</p>
+          </div>
+
+          <div style="margin-bottom:16px;">
+            <p style="font-size:0.8rem; text-transform:uppercase; color:var(--color-text-muted); font-weight:600; margin-bottom:4px;">Tech Stack</p>
+            <p style="font-size:0.95rem; font-weight:500; line-height:1.4;">Python, Flask, SymPy, OCR, HTML5, CSS3, JavaScript</p>
+          </div>
+
+          <div style="margin-bottom:16px;">
+            <p style="font-size:0.8rem; text-transform:uppercase; color:var(--color-text-muted); font-weight:600; margin-bottom:4px;">Timeline</p>
+            <p style="font-size:0.95rem; font-weight:500;">June 2025 – July 2025</p>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <p style="font-size:0.8rem; text-transform:uppercase; color:var(--color-text-muted); font-weight:600; margin-bottom:4px;">Project Story</p>
+            <p style="font-size:0.9rem; color:var(--color-text-secondary); line-height:1.4;">Developed as part of my Full Stack Python with AI internship at Appin Technology to solve student homework workflow bottlenecks.</p>
+          </div>
+
+          <a href="https://github.com/ragavarshini3/Ai_Powered_MathSolver" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="margin-right:8px;"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub Repository
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="logo">
+        RAGAVARSHINI
+        <span class="logo-dot"></span>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 Ragavarshini Alagarsamy. Case Study Portfolio.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple dynamic navbar style sync for scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.add('scrolled');
+      }
+    });
+
+    // Theme toggle handler for detail pages
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('theme-toggle');
+      if (!toggleBtn) return;
+      
+      toggleBtn.addEventListener('click', () => {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        if (isLight) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
