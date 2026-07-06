@@ -385,63 +385,132 @@ function initGitHubShowcase() {
   }
 }
 
-/* 6. Recruiter Contact Form & Validation Interactivity */
+/* ============================================================
+   6. Contact Form — Web3Forms Integration
+   Delivers form submissions directly to alagarsamyvarshini@gmail.com
+   No activation required — works immediately via fetch API
+   ============================================================ */
+
 function initContactForm() {
-  const form = document.getElementById('portfolio-contact-form');
+  const form      = document.getElementById('portfolio-contact-form');
   const statusDiv = document.getElementById('contact-form-status');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  const submitBtn    = document.getElementById('contact-submit-btn');
+  const nameField    = document.getElementById('contact-name');
+  const emailField   = document.getElementById('contact-email');
+  const messageField = document.getElementById('contact-message');
+  const originalHTML = submitBtn ? submitBtn.innerHTML : 'Send Message';
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('contact-name').value.trim();
-    const email = document.getElementById('contact-email').value.trim();
-    const message = document.getElementById('contact-message').value.trim();
-    const submitBtn = form.querySelector('button[type="submit"]');
+    const name    = nameField.value.trim();
+    const email   = emailField.value.trim();
+    const message = messageField.value.trim();
 
-    if (!name || !email || !message) {
-      showStatus('Please fill in all fields before sending.', 'error');
+    // ── Validation ──────────────────────────────────────────
+    if (!name) {
+      showStatus('⚠️ Please enter your name.', 'error');
+      nameField.focus();
+      return;
+    }
+    if (!email) {
+      showStatus('⚠️ Please enter your email address.', 'error');
+      emailField.focus();
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showStatus('⚠️ Please enter a valid email address.', 'error');
+      emailField.focus();
+      return;
+    }
+    if (!message) {
+      showStatus('⚠️ Please enter your message.', 'error');
+      messageField.focus();
       return;
     }
 
-    if (!validateEmail(email)) {
-      showStatus('Please enter a valid email address.', 'error');
-      return;
+    // ── Loading State ────────────────────────────────────────
+    setLoading(true);
+    clearStatus();
+    console.log('[Web3Forms] Submitting form to Web3Forms API...');
+
+    try {
+      const formData = new FormData(form);
+      const object   = Object.fromEntries(formData);
+      const json     = JSON.stringify(object);
+
+      console.log('[Web3Forms] Payload:', object);
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method:  'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept':       'application/json'
+        },
+        body: json
+      });
+
+      const result = await response.json();
+      console.log('[Web3Forms] API Response:', result);
+
+      if (response.ok && result.success) {
+        showStatus('✅ Message sent successfully. Thank you for reaching out!', 'success');
+        form.reset();
+        console.log('[Web3Forms] Email delivered successfully to alagarsamyvarshini@gmail.com');
+      } else {
+        const errMsg = result.message || 'Unknown error from Web3Forms API';
+        console.error('[Web3Forms] Submission failed:', errMsg);
+        showStatus('❌ Failed to send message. Please try again or email directly.', 'error');
+      }
+    } catch (err) {
+      console.error('[Web3Forms] Network error:', err);
+      showStatus('❌ Network error. Check your connection and try again.', 'error');
+    } finally {
+      setLoading(false);
     }
-
-    // Set button loading state
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Sending Message...';
-
-    // Simulate sending API request
-    setTimeout(() => {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalBtnText;
-      
-      // Visual Success State
-      showStatus('Thank you! Your message has been sent successfully. I will reach out shortly!', 'success');
-      form.reset();
-    }, 1500);
   });
 
-  function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
+  // ── Helpers ──────────────────────────────────────────────
+  function setLoading(loading) {
+    if (!submitBtn) return;
+    submitBtn.disabled = loading;
+    submitBtn.innerHTML = loading
+      ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" style="animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;">
+           <circle cx="12" cy="12" r="10" stroke-opacity=".3"/>
+           <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
+         </svg>Sending…`
+      : originalHTML;
   }
 
   function showStatus(msg, type) {
-    statusDiv.className = 'form-status ' + type;
-    statusDiv.innerText = msg;
-    
-    // Auto-clear error after 4 seconds
+    statusDiv.className     = `form-status ${type}`;
+    statusDiv.innerHTML     = msg;
+    statusDiv.style.display = 'block';
+
     if (type === 'error') {
-      setTimeout(() => {
-        statusDiv.className = 'form-status';
-      }, 4000);
+      setTimeout(clearStatus, 8000);
     }
   }
+
+  function clearStatus() {
+    statusDiv.className     = 'form-status';
+    statusDiv.innerHTML     = '';
+    statusDiv.style.display = 'none';
+  }
 }
+
+/* Spinner keyframe (inline — no CSS file edit needed) */
+if (!document.getElementById('ejs-spin-style')) {
+  const s = document.createElement('style');
+  s.id = 'ejs-spin-style';
+  s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+  document.head.appendChild(s);
+}
+
+
 
 /* 7. Typewriter Role Rotation Animation */
 function initRoleRotation() {

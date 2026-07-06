@@ -378,6 +378,9 @@
         </p>
         <div class="project-card-links">
           <a href="projects/math-solver.html" class="project-link project-link-primary">Read Case Study →</a>
+          <a href="https://math-solver-ai-6zvn.onrender.com" target="_blank" rel="noopener noreferrer" class="project-link project-link-demo">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:5px;vertical-align:middle;"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Live Demo
+          </a>
           <a href="https://github.com/ragavarshini3/Ai_Powered_MathSolver" target="_blank" rel="noopener noreferrer" class="project-link project-link-secondary">GitHub</a>
         </div>
       </div>
@@ -526,11 +529,11 @@
             </tr>
             <tr>
               <td><span class="cert-name">Data Science Internship</span></td>
-              <td><span class="cert-provider">SkillCraft Technology</span></td>
+              <td><span class="cert-provider">SkillCraft Technology <span style="color:var(--color-text-muted); font-size:0.82rem; font-weight:400;">(Remote)</span></span></td>
             </tr>
             <tr>
               <td><span class="cert-name">Data Analyst Internship</span></td>
-              <td><span class="cert-provider">Elevate Labs</span></td>
+              <td><span class="cert-provider">Elevate Labs <span style="color:var(--color-text-muted); font-size:0.82rem; font-weight:400;">(Remote)</span></span></td>
             </tr>
           </tbody>
         </table>
@@ -561,10 +564,7 @@
         <div class="counter-number" data-target="3" data-suffix="+">0</div>
         <div class="counter-label">Projects Completed</div>
       </div>
-      <div class="glass-card counter-card">
-        <div class="counter-number" data-target="2" data-suffix="+">0</div>
-        <div class="counter-label">Internships Finished</div>
-      </div>
+
       <div class="glass-card counter-card">
         <div class="counter-number" data-target="4" data-suffix="+">0</div>
         <div class="counter-label">Certifications Held</div>
@@ -722,21 +722,28 @@
 
       <!-- Contact Form -->
       <div class="glass-card contact-form-card">
-        <form id="portfolio-contact-form">
+        <form id="portfolio-contact-form" novalidate>
+          <!-- Web3Forms hidden config -->
+          <input type="hidden" name="access_key" value="a8b9c6f2-7d3e-4a1b-9f5c-2e8d0b4c6a3f">
+          <input type="hidden" name="subject" value="New Portfolio Contact Message">
+          <input type="hidden" name="from_name" value="Ragavarshini Portfolio">
+          <!-- Honeypot anti-spam -->
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+
           <div class="form-group">
             <label for="contact-name" class="form-label">Name</label>
-            <input type="text" id="contact-name" class="form-control" placeholder="Your Name" required>
+            <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your Name" autocomplete="name">
           </div>
           <div class="form-group">
             <label for="contact-email" class="form-label">Email</label>
-            <input type="email" id="contact-email" class="form-control" placeholder="your.email@example.com" required>
+            <input type="email" id="contact-email" name="email" class="form-control" placeholder="your.email@example.com" autocomplete="email">
           </div>
           <div class="form-group">
             <label for="contact-message" class="form-label">Message</label>
-            <textarea id="contact-message" class="form-control" placeholder="Tell me about your project, internship, or role details..." required></textarea>
+            <textarea id="contact-message" name="message" class="form-control" placeholder="Tell me about your project, internship, or role details..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
-          <div id="contact-form-status" class="form-status"></div>
+          <button type="submit" id="contact-submit-btn" class="btn btn-primary" style="width:100%;">Send Message</button>
+          <div id="contact-form-status" class="form-status" role="alert"></div>
         </form>
       </div>
     </div>
@@ -755,6 +762,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>
