@@ -386,9 +386,9 @@ function initGitHubShowcase() {
 }
 
 /* ============================================================
-   6. Contact Form — FormSubmit AJAX Integration
+   6. Contact Form — FormSubmit Direct POST
    Delivers form submissions directly to alagarsamyvarshini@gmail.com
-   Unlimited & free — no account required
+   Unlimited & free — validates then lets HTML form POST naturally
    ============================================================ */
 
 function initContactForm() {
@@ -400,102 +400,55 @@ function initContactForm() {
   const nameField    = document.getElementById('contact-name');
   const emailField   = document.getElementById('contact-email');
   const messageField = document.getElementById('contact-message');
-  const originalHTML = submitBtn ? submitBtn.innerHTML : 'Send Message';
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
+  // Validate only — do NOT call e.preventDefault() so FormSubmit POST works
+  form.addEventListener('submit', (e) => {
     const name    = nameField.value.trim();
     const email   = emailField.value.trim();
     const message = messageField.value.trim();
 
     // ── Validation ──────────────────────────────────────────
     if (!name) {
+      e.preventDefault();
       showStatus('⚠️ Please enter your name.', 'error');
       nameField.focus();
       return;
     }
-    if (!email) {
-      showStatus('⚠️ Please enter your email address.', 'error');
-      emailField.focus();
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      e.preventDefault();
       showStatus('⚠️ Please enter a valid email address.', 'error');
       emailField.focus();
       return;
     }
     if (!message) {
+      e.preventDefault();
       showStatus('⚠️ Please enter your message.', 'error');
       messageField.focus();
       return;
     }
 
-    // ── Loading State ────────────────────────────────────────
-    setLoading(true);
-    clearStatus();
-    console.log('[FormSubmit] Submitting form...');
-
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/alagarsamyvarshini@gmail.com', {
-        method:  'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept':       'application/json'
-        },
-        body: JSON.stringify({
-          name:     name,
-          email:    email,
-          message:  message,
-          _subject: 'New Portfolio Contact Message',
-          _template:'table',
-          _captcha: 'false'
-        })
-      });
-
-      const result = await response.json();
-      console.log('[FormSubmit] API Response:', result);
-
-      if (result.success === 'true' || result.success === true) {
-        showStatus('✅ Message sent successfully. Thank you for reaching out!', 'success');
-        form.reset();
-        console.log('[FormSubmit] Email delivered to alagarsamyvarshini@gmail.com');
-      } else {
-        console.error('[FormSubmit] Failed:', result);
-        showStatus('❌ Failed to send message. Please try again.', 'error');
-      }
-    } catch (err) {
-      console.error('[FormSubmit] Network error:', err);
-      showStatus('❌ Network error. Check your connection and try again.', 'error');
-    } finally {
-      setLoading(false);
+    // ── All valid — show loading, allow form to POST to FormSubmit ──
+    if (submitBtn) {
+      submitBtn.disabled   = true;
+      submitBtn.innerHTML  = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" style="animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;">
+         <circle cx="12" cy="12" r="10" stroke-opacity=".3"/>
+         <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
+       </svg>Sending…`;
     }
+    console.log('[FormSubmit] Posting to FormSubmit → alagarsamyvarshini@gmail.com');
+    // Form will now POST naturally to https://formsubmit.co/alagarsamyvarshini@gmail.com
   });
 
   // ── Helpers ──────────────────────────────────────────────
-  function setLoading(loading) {
-    if (!submitBtn) return;
-    submitBtn.disabled = loading;
-    submitBtn.innerHTML = loading
-      ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2" style="animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;">
-           <circle cx="12" cy="12" r="10" stroke-opacity=".3"/>
-           <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
-         </svg>Sending…`
-      : originalHTML;
-  }
-
   function showStatus(msg, type) {
     statusDiv.className     = `form-status ${type}`;
     statusDiv.innerHTML     = msg;
     statusDiv.style.display = 'block';
-    if (type === 'error') setTimeout(clearStatus, 8000);
-  }
-
-  function clearStatus() {
-    statusDiv.className     = 'form-status';
-    statusDiv.innerHTML     = '';
-    statusDiv.style.display = 'none';
+    if (type === 'error') setTimeout(() => {
+      statusDiv.style.display = 'none';
+      statusDiv.innerHTML     = '';
+    }, 8000);
   }
 }
 
