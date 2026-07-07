@@ -386,9 +386,9 @@ function initGitHubShowcase() {
 }
 
 /* ============================================================
-   6. Contact Form — Web3Forms Integration
+   6. Contact Form — FormSubmit AJAX Integration
    Delivers form submissions directly to alagarsamyvarshini@gmail.com
-   No activation required — works immediately via fetch API
+   Unlimited & free — no account required
    ============================================================ */
 
 function initContactForm() {
@@ -434,38 +434,38 @@ function initContactForm() {
     // ── Loading State ────────────────────────────────────────
     setLoading(true);
     clearStatus();
-    console.log('[Web3Forms] Submitting form to Web3Forms API...');
+    console.log('[FormSubmit] Submitting form...');
 
     try {
-      const formData = new FormData(form);
-      const object   = Object.fromEntries(formData);
-      const json     = JSON.stringify(object);
-
-      console.log('[Web3Forms] Payload:', object);
-
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://formsubmit.co/ajax/alagarsamyvarshini@gmail.com', {
         method:  'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept':       'application/json'
         },
-        body: json
+        body: JSON.stringify({
+          name:     name,
+          email:    email,
+          message:  message,
+          _subject: 'New Portfolio Contact Message',
+          _template:'table',
+          _captcha: 'false'
+        })
       });
 
       const result = await response.json();
-      console.log('[Web3Forms] API Response:', result);
+      console.log('[FormSubmit] API Response:', result);
 
-      if (response.ok && result.success) {
+      if (result.success === 'true' || result.success === true) {
         showStatus('✅ Message sent successfully. Thank you for reaching out!', 'success');
         form.reset();
-        console.log('[Web3Forms] Email delivered successfully to alagarsamyvarshini@gmail.com');
+        console.log('[FormSubmit] Email delivered to alagarsamyvarshini@gmail.com');
       } else {
-        const errMsg = result.message || 'Unknown error from Web3Forms API';
-        console.error('[Web3Forms] Submission failed:', errMsg);
-        showStatus('❌ Failed to send message. Please try again or email directly.', 'error');
+        console.error('[FormSubmit] Failed:', result);
+        showStatus('❌ Failed to send message. Please try again.', 'error');
       }
     } catch (err) {
-      console.error('[Web3Forms] Network error:', err);
+      console.error('[FormSubmit] Network error:', err);
       showStatus('❌ Network error. Check your connection and try again.', 'error');
     } finally {
       setLoading(false);
@@ -489,10 +489,7 @@ function initContactForm() {
     statusDiv.className     = `form-status ${type}`;
     statusDiv.innerHTML     = msg;
     statusDiv.style.display = 'block';
-
-    if (type === 'error') {
-      setTimeout(clearStatus, 8000);
-    }
+    if (type === 'error') setTimeout(clearStatus, 8000);
   }
 
   function clearStatus() {
