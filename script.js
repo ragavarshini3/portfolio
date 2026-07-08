@@ -254,37 +254,50 @@ function initScrollReveals() {
   revealElements.forEach(el => observer.observe(el));
 }
 
-/* 4. Interactive Counter Stats */
+/* 4. Interactive Counter Stats — Scroll-triggered animated count up */
 function initCounters() {
   const counters = document.querySelectorAll('.counter-number');
   if (counters.length === 0) return;
 
   const animateCount = (counter) => {
-    const target = parseInt(counter.getAttribute('data-target'));
-    const suffix = counter.getAttribute('data-suffix') || '';
-    let count = 0;
-    const speed = 2000 / target; // complete in 2 seconds
+    const target  = parseInt(counter.getAttribute('data-target'));
+    const suffix  = counter.getAttribute('data-suffix') || '';
+    const duration = 2200; // ms total animation time
+    const startVal = 1;
+    let startTime  = null;
 
-    const update = () => {
-      count++;
-      counter.innerText = count + suffix;
-      if (count < target) {
-        setTimeout(update, speed);
+    // Ease-out cubic: fast at start, slows near target
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed  = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased    = easeOut(progress);
+      const current  = Math.round(startVal + (target - startVal) * eased);
+
+      counter.innerText = current + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
       } else {
         counter.innerText = target + suffix;
       }
     };
-    update();
+
+    // Start from 1 visually
+    counter.innerText = startVal + suffix;
+    requestAnimationFrame(step);
   };
 
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         animateCount(entry.target);
-        observer.unobserve(entry.target);
+        obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.4 });
 
   counters.forEach(c => observer.observe(c));
 }
