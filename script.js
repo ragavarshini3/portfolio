@@ -400,8 +400,7 @@ function initGitHubShowcase() {
 
 /* ============================================================
    6. Contact Form — FormSubmit Direct POST
-   Delivers form submissions directly to alagarsamyvarshini@gmail.com
-   Unlimited & free — validates then lets HTML form POST naturally
+   Validates fields then lets HTML form POST to FormSubmit
    ============================================================ */
 
 function initContactForm() {
@@ -414,44 +413,46 @@ function initContactForm() {
   const emailField   = document.getElementById('contact-email');
   const messageField = document.getElementById('contact-message');
 
-  // Validate only — do NOT call e.preventDefault() so FormSubmit POST works
+  // Validate only — do NOT preventDefault on success so FormSubmit POST works
   form.addEventListener('submit', (e) => {
     const name    = nameField.value.trim();
     const email   = emailField.value.trim();
     const message = messageField.value.trim();
 
-    // ── Validation ──────────────────────────────────────────
     if (!name) {
       e.preventDefault();
       showStatus('⚠️ Please enter your name.', 'error');
-      nameField.focus();
-      return;
+      nameField.focus(); return;
     }
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       e.preventDefault();
       showStatus('⚠️ Please enter a valid email address.', 'error');
-      emailField.focus();
-      return;
+      emailField.focus(); return;
     }
     if (!message) {
       e.preventDefault();
       showStatus('⚠️ Please enter your message.', 'error');
-      messageField.focus();
-      return;
+      messageField.focus(); return;
     }
 
-    // ── All valid — show loading, allow form to POST to FormSubmit ──
+    // All valid — show loading spinner, let form POST naturally
     if (submitBtn) {
-      submitBtn.disabled   = true;
-      submitBtn.innerHTML  = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      submitBtn.disabled  = true;
+      submitBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
            stroke-width="2" style="animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;">
          <circle cx="12" cy="12" r="10" stroke-opacity=".3"/>
          <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
        </svg>Sending…`;
     }
-    console.log('[FormSubmit] Posting to FormSubmit → alagarsamyvarshini@gmail.com');
-    // Form will now POST naturally to https://formsubmit.co/alagarsamyvarshini@gmail.com
   });
+
+  function showStatus(msg, type) {
+    statusDiv.className = `form-status ${type}`;
+    statusDiv.innerHTML = msg;
+    statusDiv.style.display = 'block';
+    if (type === 'error') setTimeout(() => { statusDiv.style.display = 'none'; }, 8000);
+  }
+}
 
   // ── Helpers ──────────────────────────────────────────────
   function showStatus(msg, type) {
