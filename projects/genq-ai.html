@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study: GenQ Generative AI Application | Ragavarshini Alagarsamy</title>
+  <title>Case Study: GenQ – AI Question Paper Generator | Ragavarshini Alagarsamy</title>
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme');
@@ -51,9 +51,9 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
         Back to Projects
       </a>
-      <h1 class="hero-title" style="font-size:3rem; margin-bottom:16px;">GenQ &mdash; Generative AI Application</h1>
+      <h1 class="hero-title" style="font-size:3rem; margin-bottom:16px;">GenQ &ndash; AI Question Paper Generator</h1>
       <p class="hero-desc" style="margin-bottom:0; max-width:800px;">
-        A high-performance Generative AI platform powering intelligent prompt handling, contextual text synthesis, and interactive LLM query execution.
+        An AI-powered question paper generator that creates customized question papers based on department, subject, difficulty level, question types, and other requirements.
       </p>
     </div>
   </section>
@@ -66,20 +66,20 @@
         <div class="glass-card" style="margin-bottom:32px;">
           <h2 style="font-size:1.6rem; margin-bottom:16px; color:var(--color-text-primary);">Overview</h2>
           <p style="color:var(--color-text-secondary); line-height:1.7; margin-bottom:16px;">
-            <strong>GenQ</strong> is a modern Generative AI application designed to provide instantaneous, context-aware artificial intelligence responses for complex user queries, automated text generation, and dynamic knowledge synthesis.
+            <strong>GenQ</strong> uses Google Gemini AI to automatically generate structured question papers, reducing the time and effort required for teachers to manually prepare examination papers.
           </p>
           <p style="color:var(--color-text-secondary); line-height:1.7;">
-            Built with modern LLM pipelines and deployed live, GenQ offers a seamless user experience with fast streaming responses, prompt optimization, and robust multi-turn conversational memory.
+            Generated question papers can be customized by department, subject, difficulty level, and question types, and formatted and downloaded directly as PDFs using ReportLab.
           </p>
         </div>
 
         <div class="glass-card" style="margin-bottom:32px;">
           <h2 style="font-size:1.6rem; margin-bottom:16px; color:var(--color-text-primary);">Key Architectural Highlights</h2>
           <ul style="color:var(--color-text-secondary); line-height:1.8; padding-left:20px;">
-            <li><strong>Generative LLM Integration:</strong> Connected with advanced LLM backends to process complex user prompts and generate high-quality text output.</li>
-            <li><strong>Contextual Memory:</strong> Retains context across multi-turn interactions to deliver coherent and contextually relevant responses.</li>
-            <li><strong>Optimized Latency:</strong> Optimized pipeline processing to ensure quick API execution and streaming output.</li>
-            <li><strong>Interactive UI:</strong> Clean, responsive dark-mode interface built for effortless interaction and seamless prompt entry.</li>
+            <li><strong>Google Gemini AI Integration:</strong> Leverages Gemini API to generate pedagogical questions adhering to difficulty constraints and Bloom's Taxonomy.</li>
+            <li><strong>Dynamic Customization:</strong> Supports filtering and prompt construction by department, subject syllabus, mark distributions, and difficulty levels.</li>
+            <li><strong>Automated PDF Generation:</strong> Uses ReportLab in Python to format and compile cleanly styled exam PDFs ready for printing.</li>
+            <li><strong>Flask Web Application:</strong> Lightweight web interface enabling educators to specify paper requirements and download results instantly.</li>
           </ul>
         </div>
       </div>
@@ -91,17 +91,17 @@
           
           <div style="margin-bottom:20px;">
             <div style="font-size:0.8rem; color:var(--color-text-muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Role</div>
-            <div style="color:var(--color-text-primary); font-weight:600;">AI Developer & Full Stack Engineer</div>
+            <div style="color:var(--color-text-primary); font-weight:600;">AI Developer & Full Stack Developer</div>
           </div>
 
           <div style="margin-bottom:20px;">
             <div style="font-size:0.8rem; color:var(--color-text-muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Technologies Used</div>
             <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
               <span class="project-tech-tag">Python</span>
+              <span class="project-tech-tag">Flask</span>
+              <span class="project-tech-tag">Google Gemini AI</span>
+              <span class="project-tech-tag">ReportLab</span>
               <span class="project-tech-tag">Generative AI</span>
-              <span class="project-tech-tag">LLM</span>
-              <span class="project-tech-tag">LangChain</span>
-              <span class="project-tech-tag">Streamlit/Flask</span>
             </div>
           </div>
 
@@ -119,7 +119,7 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
               Launch Live Demo
             </a>
-            <a href="https://github.com/ragavarshini3" target="_blank" rel="noopener noreferrer" 
+            <a href="https://github.com/ragavarshini3/GenQ" target="_blank" rel="noopener noreferrer" 
                class="btn btn-secondary" style="text-align:center; justify-content:center;">
               View Source on GitHub
             </a>
@@ -142,6 +142,6 @@
     </div>
   </footer>
 
-  <script src="../script.js?v=11"></script>
+  <script src="../script.js?v=12"></script>
 </body>
 </html>
