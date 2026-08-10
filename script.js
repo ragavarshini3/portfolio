@@ -454,18 +454,6 @@ function initContactForm() {
   }
 }
 
-  // ── Helpers ──────────────────────────────────────────────
-  function showStatus(msg, type) {
-    statusDiv.className     = `form-status ${type}`;
-    statusDiv.innerHTML     = msg;
-    statusDiv.style.display = 'block';
-    if (type === 'error') setTimeout(() => {
-      statusDiv.style.display = 'none';
-      statusDiv.innerHTML     = '';
-    }, 8000);
-  }
-}
-
 /* Spinner keyframe (inline — no CSS file edit needed) */
 if (!document.getElementById('ejs-spin-style')) {
   const s = document.createElement('style');
