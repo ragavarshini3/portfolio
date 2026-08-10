@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: GenQ Generative AI Application | Ragavarshini Alagarsamy</title>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- Floating Navigation Bar -->
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="../index.html#home" class="logo">
+        RAGAVARSHINI
+        <span class="logo-dot"></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#about" class="nav-link">About</a></li>
+        <li><a href="../index.html#expertise" class="nav-link">Expertise</a></li>
+        <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+        <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+        <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+        <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+        <li>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+            <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/1JyU8rjU5d-P4Um3T7mbZVVyqzA4wh5zc/view?usp=drive_link" 
+             target="_blank" rel="noopener noreferrer" class="nav-cta">Resume</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Case Study Hero -->
+  <section class="case-study-hero">
+    <div class="container">
+      <a href="../index.html#projects" class="project-link" style="color:var(--color-accent); font-weight:600; margin-bottom:24px; display:inline-flex; align-items:center; gap:8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Projects
+      </a>
+      <h1 class="hero-title" style="font-size:3rem; margin-bottom:16px;">GenQ &mdash; Generative AI Application</h1>
+      <p class="hero-desc" style="margin-bottom:0; max-width:800px;">
+        A high-performance Generative AI platform powering intelligent prompt handling, contextual text synthesis, and interactive LLM query execution.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="container" style="padding:60px 0 100px;">
+    <div class="case-study-grid">
+      <!-- Left Column: Story -->
+      <div class="case-study-content">
+        <div class="glass-card" style="margin-bottom:32px;">
+          <h2 style="font-size:1.6rem; margin-bottom:16px; color:var(--color-text-primary);">Overview</h2>
+          <p style="color:var(--color-text-secondary); line-height:1.7; margin-bottom:16px;">
+            <strong>GenQ</strong> is a modern Generative AI application designed to provide instantaneous, context-aware artificial intelligence responses for complex user queries, automated text generation, and dynamic knowledge synthesis.
+          </p>
+          <p style="color:var(--color-text-secondary); line-height:1.7;">
+            Built with modern LLM pipelines and deployed live, GenQ offers a seamless user experience with fast streaming responses, prompt optimization, and robust multi-turn conversational memory.
+          </p>
+        </div>
+
+        <div class="glass-card" style="margin-bottom:32px;">
+          <h2 style="font-size:1.6rem; margin-bottom:16px; color:var(--color-text-primary);">Key Architectural Highlights</h2>
+          <ul style="color:var(--color-text-secondary); line-height:1.8; padding-left:20px;">
+            <li><strong>Generative LLM Integration:</strong> Connected with advanced LLM backends to process complex user prompts and generate high-quality text output.</li>
+            <li><strong>Contextual Memory:</strong> Retains context across multi-turn interactions to deliver coherent and contextually relevant responses.</li>
+            <li><strong>Optimized Latency:</strong> Optimized pipeline processing to ensure quick API execution and streaming output.</li>
+            <li><strong>Interactive UI:</strong> Clean, responsive dark-mode interface built for effortless interaction and seamless prompt entry.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Column: Sidebar Specs -->
+      <div class="case-study-sidebar">
+        <div class="glass-card">
+          <h3 style="font-size:1.2rem; margin-bottom:20px; color:var(--color-text-primary);">Project Info</h3>
+          
+          <div style="margin-bottom:20px;">
+            <div style="font-size:0.8rem; color:var(--color-text-muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Role</div>
+            <div style="color:var(--color-text-primary); font-weight:600;">AI Developer & Full Stack Engineer</div>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <div style="font-size:0.8rem; color:var(--color-text-muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Technologies Used</div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
+              <span class="project-tech-tag">Python</span>
+              <span class="project-tech-tag">Generative AI</span>
+              <span class="project-tech-tag">LLM</span>
+              <span class="project-tech-tag">LangChain</span>
+              <span class="project-tech-tag">Streamlit/Flask</span>
+            </div>
+          </div>
+
+          <div style="margin-bottom:24px;">
+            <div style="font-size:0.8rem; color:var(--color-text-muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Deployment Status</div>
+            <div style="color:#10b981; font-weight:600; display:inline-flex; align-items:center; gap:6px;">
+              <span style="width:8px; height:8px; background:#10b981; border-radius:50%; display:inline-block;"></span>
+              Live Production (Render)
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <a href="https://genq-x88n.onrender.com" target="_blank" rel="noopener noreferrer" 
+               class="btn btn-primary" style="text-align:center; justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Launch Live Demo
+            </a>
+            <a href="https://github.com/ragavarshini3" target="_blank" rel="noopener noreferrer" 
+               class="btn btn-secondary" style="text-align:center; justify-content:center;">
+              View Source on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="logo">
+        RAGAVARSHINI
+        <span class="logo-dot"></span>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 Ragavarshini Alagarsamy &mdash; <em>"Building Intelligence, One Line at a Time."</em>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../script.js?v=11"></script>
+</body>
+</html>
