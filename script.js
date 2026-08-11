@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initRoleRotation();
   initMagneticButtons();
+  initProjectCarousel();
 });
 
 /* 1. Navbar Scroll Effect & Mobile Hamburger Menu */
@@ -565,5 +566,22 @@ function initThemeToggle() {
       document.documentElement.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light');
     }
+  });
+}
+
+/* 10. Project Carousel Horizontal Scroll */
+function initProjectCarousel() {
+  const prevBtn = document.getElementById('project-prev-btn');
+  const nextBtn = document.getElementById('project-next-btn');
+  const grid = document.querySelector('.project-card-grid');
+
+  if (!prevBtn || !nextBtn || !grid) return;
+
+  prevBtn.addEventListener('click', () => {
+    grid.scrollBy({ left: -360, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    grid.scrollBy({ left: 360, behavior: 'smooth' });
   });
 }

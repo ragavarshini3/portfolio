@@ -1354,17 +1354,82 @@ button, input, textarea {
   color: var(--color-cyan);
 }
 
-/* Featured Projects Cards */
+/* Featured Projects Carousel Slider */
+.project-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.project-carousel-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.carousel-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.carousel-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: var(--color-accent);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
+}
+
 .project-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 32px;
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 16px;
+  margin-bottom: -16px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.4) transparent;
+}
+
+.project-card-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.project-card-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+}
+
+.project-card-grid::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.35);
+  border-radius: 4px;
+}
+
+.project-card-grid::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 0 0 350px;
+  min-width: 310px;
+  max-width: 360px;
+  scroll-snap-align: start;
+  height: auto;
 }
 
 .project-card-image {
