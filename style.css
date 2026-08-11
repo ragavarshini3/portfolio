@@ -1383,7 +1383,7 @@ button, input, textarea {
   transition: var(--transition-smooth);
 }
 
-.carousel-btn:hover {
+.carousel-btn:hover:not(:disabled) {
   background: rgba(59, 130, 246, 0.2);
   border-color: var(--color-accent);
   color: #fff;
@@ -1391,31 +1391,48 @@ button, input, textarea {
   box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
 }
 
-.project-card-grid {
+.carousel-btn:disabled,
+.carousel-btn.disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.project-carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 8px 0;
+}
+
+.project-card-track {
   display: flex;
-  gap: 28px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 16px;
-  margin-bottom: -16px;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(59, 130, 246, 0.4) transparent;
+  gap: 24px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  width: 100%;
 }
 
-.project-card-grid::-webkit-scrollbar {
-  height: 6px;
+.project-card-track .project-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  max-width: calc((100% - 48px) / 3);
+  min-width: 0;
+  box-sizing: border-box;
 }
 
-.project-card-grid::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 4px;
+@media (max-width: 992px) {
+  .project-card-track .project-card {
+    flex: 0 0 calc((100% - 24px) / 2);
+    max-width: calc((100% - 24px) / 2);
+  }
 }
 
-.project-card-grid::-webkit-scrollbar-thumb {
-  background: rgba(59, 130, 246, 0.35);
-  border-radius: 4px;
+@media (max-width: 768px) {
+  .project-card-track .project-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
 .project-card-grid::-webkit-scrollbar-thumb:hover {

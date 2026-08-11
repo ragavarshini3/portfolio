@@ -569,19 +569,75 @@ function initThemeToggle() {
   });
 }
 
-/* 10. Project Carousel Horizontal Scroll */
+/* 10. Project Carousel Transform Slider */
 function initProjectCarousel() {
   const prevBtn = document.getElementById('project-prev-btn');
   const nextBtn = document.getElementById('project-next-btn');
-  const grid = document.querySelector('.project-card-grid');
+  const track   = document.getElementById('project-card-track');
 
-  if (!prevBtn || !nextBtn || !grid) return;
+  if (!prevBtn || !nextBtn || !track) return;
+
+  const cards = track.querySelectorAll('.project-card');
+  const totalCards = cards.length;
+  let currentIndex = 0;
+
+  function getVisibleCardsCount() {
+    const width = window.innerWidth;
+    if (width <= 768) return 1;  // Mobile: 1 card
+    if (width <= 992) return 2;  // Tablet: 2 cards
+    return 3;                    // Desktop: 3 cards
+  }
+
+  function updateSlider() {
+    const visibleCards = getVisibleCardsCount();
+    const maxIndex = Math.max(0, totalCards - visibleCards);
+
+    // Keep currentIndex within bounds
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+    if (currentIndex < 0) currentIndex = 0;
+
+    const gap = 24; // matches CSS gap
+    const containerWidth = track.parentElement.offsetWidth;
+    const cardWidth = (containerWidth - (gap * (visibleCards - 1))) / visibleCards;
+    const translateX = (cardWidth + gap) * currentIndex;
+
+    track.style.transform = `translateX(-${translateX}px)`;
+
+    // Disable Left Arrow at beginning
+    if (currentIndex === 0) {
+      prevBtn.disabled = true;
+      prevBtn.classList.add('disabled');
+    } else {
+      prevBtn.disabled = false;
+      prevBtn.classList.remove('disabled');
+    }
+
+    // Disable Right Arrow when no more projects to slide
+    if (currentIndex >= maxIndex) {
+      nextBtn.disabled = true;
+      nextBtn.classList.add('disabled');
+    } else {
+      nextBtn.disabled = false;
+      nextBtn.classList.remove('disabled');
+    }
+  }
 
   prevBtn.addEventListener('click', () => {
-    grid.scrollBy({ left: -360, behavior: 'smooth' });
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
   });
 
   nextBtn.addEventListener('click', () => {
-    grid.scrollBy({ left: 360, behavior: 'smooth' });
+    const visibleCards = getVisibleCardsCount();
+    const maxIndex = Math.max(0, totalCards - visibleCards);
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+      updateSlider();
+    }
   });
+
+  window.addEventListener('resize', updateSlider);
+  updateSlider();
 }
