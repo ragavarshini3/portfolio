@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <!-- Dark Navy Radial Gradient -->
+    <radialGradient id="bg-gradient" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#0f1f3d"/>
+      <stop offset="60%" stop-color="#070d1a"/>
+      <stop offset="100%" stop-color="#03060d"/>
+    </radialGradient>
+
+    <!-- Cyan Glow Filter -->
+    <filter id="cyan-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Subtle Card Shadow -->
+    <filter id="card-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Linear Gradients -->
+    <linearGradient id="cyan-text-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <linearGradient id="glass-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.07)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.02)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg-gradient)"/>
+
+  <!-- Subtle Tech Grid Lines -->
+  <g opacity="0.08" stroke="#38bdf8" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90"/>
+    <line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/>
+    <line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="160" y1="0" x2="160" y2="450"/>
+    <line x1="320" y1="0" x2="320" y2="450"/>
+    <line x1="480" y1="0" x2="480" y2="450"/>
+    <line x1="640" y1="0" x2="640" y2="450"/>
+  </g>
+
+  <!-- Ambient Glowing Orbs -->
+  <circle cx="200" cy="140" r="180" fill="#0284c7" opacity="0.15" filter="url(#cyan-glow)"/>
+  <circle cx="620" cy="300" r="140" fill="#3b82f6" opacity="0.12" filter="url(#cyan-glow)"/>
+
+  <!-- Main Glassmorphism Display Card -->
+  <rect x="60" y="45" width="680" height="360" rx="20" fill="url(#glass-grad)" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1.5" filter="url(#card-shadow)"/>
+
+  <!-- Top Bar of Display Card -->
+  <path d="M 60 65 A 20 20 0 0 1 80 45 L 720 45 A 20 20 0 0 1 740 65 L 740 95 L 60 95 Z" fill="rgba(15, 23, 42, 0.6)"/>
+  <line x1="60" y1="95" x2="740" y2="95" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+
+  <!-- Window Control Dots -->
+  <circle cx="92" cy="70" r="5" fill="#ef4444" opacity="0.8"/>
+  <circle cx="110" cy="70" r="5" fill="#f59e0b" opacity="0.8"/>
+  <circle cx="128" cy="70" r="5" fill="#10b981" opacity="0.8"/>
+
+  <!-- BRAND LOGO & TITLE (Matching User's Reference Screenshot) -->
+  <g transform="translate(160, 60)">
+    <!-- Graduation Cap Logo Icon -->
+    <g filter="url(#cyan-glow)">
+      <!-- Cap Top Diamond -->
+      <polygon points="18 4, 34 11, 18 18, 2 11" fill="#00d8ff"/>
+      <!-- Cap Base -->
+      <path d="M 7 14.5 L 7 20 C 7 23.5 29 23.5 29 20 L 29 14.5" fill="none" stroke="#00d8ff" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Tassel Drop -->
+      <path d="M 30 11.5 L 34 16 L 34 23" fill="none" stroke="#00d8ff" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="34" cy="24" r="1.5" fill="#00d8ff"/>
+    </g>
+
+    <!-- Brand Name Text 'GenQ' -->
+    <text x="44" y="22" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="26" fill="url(#cyan-text-grad)" letter-spacing="0.5">GenQ</text>
+  </g>
+
+  <!-- Tagline Badge inside Window -->
+  <rect x="490" y="62" width="220" height="24" rx="12" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1"/>
+  <text x="600" y="78" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="11" fill="#38bdf8" text-anchor="middle">AI QUESTION PAPER GENERATOR</text>
+
+  <!-- UI Content Area: Question Paper Generation Dashboard Mockup -->
+  
+  <!-- Left Panel: Input Controls -->
+  <rect x="90" y="120" width="260" height="255" rx="12" fill="rgba(15, 23, 42, 0.7)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+  
+  <text x="110" y="148" font-family="system-ui, sans-serif" font-weight="700" font-size="13" fill="#e2e8f0">Configuration</text>
+  
+  <!-- Form Field 1: Department -->
+  <rect x="110" y="162" width="220" height="32" rx="6" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+  <text x="122" y="182" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Dept: Computer Science</text>
+  
+  <!-- Form Field 2: Subject -->
+  <rect x="110" y="204" width="220" height="32" rx="6" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+  <text x="122" y="224" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Subject: Artificial Intelligence</text>
+
+  <!-- Form Field 3: Difficulty -->
+  <rect x="110" y="246" width="220" height="32" rx="6" fill="rgba(56, 189, 248, 0.1)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1"/>
+  <text x="122" y="266" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#38bdf8">Difficulty: Medium / Hard</text>
+
+  <!-- Generate Button -->
+  <rect x="110" y="296" width="220" height="38" rx="8" fill="url(#cyan-text-grad)"/>
+  <text x="220" y="320" font-family="system-ui, sans-serif" font-weight="700" font-size="13" fill="#ffffff" text-anchor="middle">✨ Generate Paper (Gemini AI)</text>
+
+  <!-- Right Panel: Live PDF Preview Document -->
+  <rect x="375" y="120" width="335" height="255" rx="12" fill="#ffffff" opacity="0.95" filter="url(#card-shadow)"/>
+
+  <!-- PDF Document Header -->
+  <text x="542" y="150" font-family="serif" font-weight="700" font-size="13" fill="#1e293b" text-anchor="middle">DEPARTMENT OF COMPUTER SCIENCE &amp; ENGINEERING</text>
+  <text x="542" y="166" font-family="sans-serif" font-weight="600" font-size="11" fill="#475569" text-anchor="middle">END SEMESTER EXAMINATION — MODEL QUESTION PAPER</text>
+  <line x1="400" y1="178" x2="685" y2="178" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- PDF Content Lines (Simulated Questions) -->
+  <text x="400" y="200" font-family="sans-serif" font-weight="700" font-size="10" fill="#0f172a">PART A (5 x 2 = 10 Marks)</text>
+  
+  <text x="400" y="220" font-family="sans-serif" font-size="9" fill="#334155">1. Define Heuristic Search and explain A* Algorithm constraints.</text>
+  <text x="670" y="220" font-family="sans-serif" font-size="9" fill="#64748b" text-anchor="end">[2M]</text>
+  
+  <text x="400" y="238" font-family="sans-serif" font-size="9" fill="#334155">2. Differentiate between Forward &amp; Backward Chaining in Inference.</text>
+  <text x="670" y="238" font-family="sans-serif" font-size="9" fill="#64748b" text-anchor="end">[2M]</text>
+
+  <text x="400" y="256" font-family="sans-serif" font-size="9" fill="#334155">3. State the purpose of Loss Function in Neural Network Training.</text>
+  <text x="670" y="256" font-family="sans-serif" font-size="9" fill="#64748b" text-anchor="end">[2M]</text>
+
+  <text x="400" y="284" font-family="sans-serif" font-weight="700" font-size="10" fill="#0f172a">PART B (2 x 13 = 26 Marks)</text>
+  
+  <text x="400" y="304" font-family="sans-serif" font-size="9" fill="#334155">4. (a) Construct a Decision Tree for the given dataset using ID3.</text>
+  <text x="670" y="304" font-family="sans-serif" font-size="9" fill="#64748b" text-anchor="end">[13M]</text>
+  
+  <text x="420" y="320" font-family="sans-serif" font-size="8.5" fill="#64748b">OR</text>
+  
+  <text x="400" y="336" font-family="sans-serif" font-size="9" fill="#334155">   (b) Explain Convolutional Neural Network architecture in detail.</text>
+  <text x="670" y="336" font-family="sans-serif" font-size="9" fill="#64748b" text-anchor="end">[13M]</text>
+
+  <!-- Download PDF Badge Floating on Document -->
+  <g transform="translate(560, 348)">
+    <rect x="0" y="0" width="130" height="22" rx="11" fill="#0284c7"/>
+    <text x="65" y="15" font-family="sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">📄 Export PDF (ReportLab)</text>
+  </g>
+</svg>
