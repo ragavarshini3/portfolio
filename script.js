@@ -400,8 +400,9 @@ function initGitHubShowcase() {
 }
 
 /* ============================================================
-   6. Contact Form — FormSubmit Direct POST
-   Validates fields then lets HTML form POST to FormSubmit
+   6. Contact Form — Reliable Background AJAX Submission
+   Delivers directly to alagarsamyvarshini@gmail.com
+   Zero page redirects & zero server 500 crashes
    ============================================================ */
 
 function initContactForm() {
@@ -413,45 +414,128 @@ function initContactForm() {
   const nameField    = document.getElementById('contact-name');
   const emailField   = document.getElementById('contact-email');
   const messageField = document.getElementById('contact-message');
+  const originalBtn  = submitBtn ? submitBtn.innerHTML : 'Send Message';
 
-  // Validate only — do NOT preventDefault on success so FormSubmit POST works
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
     const name    = nameField.value.trim();
     const email   = emailField.value.trim();
     const message = messageField.value.trim();
 
+    // ── Validation ──────────────────────────────────────────
     if (!name) {
-      e.preventDefault();
       showStatus('⚠️ Please enter your name.', 'error');
       nameField.focus(); return;
     }
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      e.preventDefault();
       showStatus('⚠️ Please enter a valid email address.', 'error');
       emailField.focus(); return;
     }
     if (!message) {
-      e.preventDefault();
       showStatus('⚠️ Please enter your message.', 'error');
       messageField.focus(); return;
     }
 
-    // All valid — show loading spinner, let form POST naturally
-    if (submitBtn) {
-      submitBtn.disabled  = true;
-      submitBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="2" style="animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;">
-         <circle cx="12" cy="12" r="10" stroke-opacity=".3"/>
-         <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
-       </svg>Sending…`;
+    // ── Sending State ───────────────────────────────────────
+    setLoading(true);
+    clearStatus();
+
+    // ── Attempt 1: Web3Forms API (Key: 102dd2f7-2f8c-4cda-93ce-b881d88eefbe) ──
+    try {
+      const payload = {
+        access_key: '102dd2f7-2f8c-4cda-93ce-b881d88eefbe',
+        subject:    '📩 New Portfolio Contact Message',
+        from_name:  'Ragavarshini Portfolio',
+        name, email, message
+      };
+
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify(payload)
+      });
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        showStatus('✅ Message sent successfully! Thank you for reaching out.', 'success');
+        form.reset();
+        setLoading(false);
+        return;
+      }
+    } catch (err) {
+      console.warn('[ContactForm] Web3Forms endpoint error, trying FormSubmit AJAX fallback...', err);
     }
+
+    // ── Attempt 2: FormSubmit AJAX Endpoint Fallback ────────
+    try {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('message', message);
+      formData.append('_subject', '📩 New Portfolio Contact Message');
+
+      const res = await fetch('https://formsubmit.co/ajax/alagarsamyvarshini@gmail.com', {
+        method:  'POST',
+        headers: { 'Accept': 'application/json' },
+        body:    formData
+      });
+      const data = await res.json();
+
+      if (res.ok && (data.success === 'true' || data.success === true)) {
+        showStatus('✅ Message sent successfully! Thank you for reaching out.', 'success');
+        form.reset();
+        setLoading(false);
+        return;
+      }
+    } catch (err) {
+      console.error('[ContactForm] FormSubmit AJAX endpoint error:', err);
+    }
+
+    // ── If both fail ────────────────────────────────────────
+    showStatus('❌ Submission error. Please email directly to alagarsamyvarshini@gmail.com', 'error');
+    setLoading(false);
   });
 
+  function setLoading(on) {
+    if (!submitBtn) return;
+    submitBtn.disabled = on;
+    submitBtn.innerHTML = on
+      ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" style="animation:spin 1s linear infinite;vertical-align:middle;margin-right:8px;">
+           <circle cx="12" cy="12" r="10" stroke-opacity=".3"/>
+           <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
+         </svg>Sending…`
+      : originalBtn;
+  }
+
   function showStatus(msg, type) {
+    if (!statusDiv) return;
     statusDiv.className = `form-status ${type}`;
+    statusDiv.style.padding = '12px 16px';
+    statusDiv.style.borderRadius = '8px';
+    statusDiv.style.fontSize = '0.9rem';
+    statusDiv.style.fontWeight = '600';
+
+    if (type === 'success') {
+      statusDiv.style.background = 'rgba(16, 185, 129, 0.12)';
+      statusDiv.style.border = '1px solid rgba(16, 185, 129, 0.4)';
+      statusDiv.style.color = '#34d399';
+    } else {
+      statusDiv.style.background = 'rgba(239, 68, 68, 0.12)';
+      statusDiv.style.border = '1px solid rgba(239, 68, 68, 0.4)';
+      statusDiv.style.color = '#f87171';
+    }
+
     statusDiv.innerHTML = msg;
     statusDiv.style.display = 'block';
-    if (type === 'error') setTimeout(() => { statusDiv.style.display = 'none'; }, 8000);
+  }
+
+  function clearStatus() {
+    if (!statusDiv) return;
+    statusDiv.className = 'form-status';
+    statusDiv.innerHTML = '';
+    statusDiv.style.display = 'none';
   }
 }
 
